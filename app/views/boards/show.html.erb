@@ -1,0 +1,16 @@
+<p> Battleship </p>
+<table>
+	<thead>
+		<th> My Ship</th>
+		<th></th>
+		<th> Attack View</th>
+	</tbody>
+		<tr>
+			<td><%= render 'defend' %></td>
+			<td><%= render 'missle' %></td>
+			<td><%= render 'attack' %></td>
+		</tr>
+	</tbody>
+</table>
+<%= link_to "Home", boards_path %>
+<%= @board.attack %>

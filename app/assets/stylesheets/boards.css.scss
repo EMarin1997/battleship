@@ -1,0 +1,23 @@
+// Place all the styles related to the Boards controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.water{
+	background-color: blue;
+}
+.column{
+	background-color: black;
+	color:white;
+}
+.ship{
+	background-color: grey;
+	color:grey;
+}
+.hit{
+	background-color: red;
+	color:red;
+}
+.miss{
+	background-color: white;
+	color:white
+}

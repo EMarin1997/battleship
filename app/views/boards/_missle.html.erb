@@ -1,0 +1,9 @@
+<%= form_for :attack, url: board_attacks_path(@board) do |f| %>
+ <p> 
+  <%= f.label :point, "Attack" %>
+  <%= f.text_field :point %>
+ </p>
+ <p>
+  <%= f.submit %>
+ </p>
+<% end %>
