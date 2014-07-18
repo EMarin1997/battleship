@@ -12,5 +12,12 @@
 		</tr>
 	</tbody>
 </table>
+<h2>Attacks</h2>
+<% @board.attacks.each do |attack| %>
+   <p>
+    <strong>Point:</strong>
+    <%= attack.point %>
+  </p>
+<% end %>
 <%= link_to "Home", boards_path %>
-<%= @board.attack %>
+

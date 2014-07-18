@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140716230420) do
+ActiveRecord::Schema.define(version: 20140718224853) do
 
   create_table "attacks", force: true do |t|
     t.string   "point",      null: false
@@ -30,6 +30,13 @@ ActiveRecord::Schema.define(version: 20140716230420) do
 
   create_table "games", force: true do |t|
     t.integer  "turn"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "ships", force: true do |t|
+    t.string   "point",      null: false
+    t.integer  "board_id",   null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
