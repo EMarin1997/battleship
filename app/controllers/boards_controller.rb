@@ -3,7 +3,7 @@ class BoardsController < ApplicationController
 	end
 
 	def create
-		@board = Board.new(board_params)
+		@board = Board.new
 
 		@board.save
 		redirect_to @board
@@ -26,11 +26,6 @@ class BoardsController < ApplicationController
 	end
 
 	def destroy
-	end
-
-	private
-	def board_params
-		params.require(:board).permit(:ship, :attack)
 	end
 
 end

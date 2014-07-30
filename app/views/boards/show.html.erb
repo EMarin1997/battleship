@@ -7,8 +7,21 @@
 	</tbody>
 		<tr>
 			<td><%= render 'defend' %></td>
-			<td><%= render 'missle' %></td>
+			<td></td>
+			<% if @board.ships.count == 5 %>
 			<td><%= render 'attack' %></td>
+			<%end%>
+		</tr>
+		<tr>
+			<% if @board.ships.count < 5 %>
+				<td><%= render 'form' %></td>
+			<% else %>
+				<td></td>
+			<%end%>
+			<td></td>
+			<% if @board.ships.count == 5 %>
+				<td><%= render 'missle' %></td>
+			<%end%>
 		</tr>
 	</tbody>
 </table>
