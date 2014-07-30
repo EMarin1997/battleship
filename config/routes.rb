@@ -6,10 +6,9 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
   resources :games 
   resources :boards do
-    resources :attacks
-    resources :ships
+    resources :attacks, only: [:create]
+    resources :ships, only: [:create]
   end
-  resources :users
   # You can have the root of your site routed with "root"
    root 'play#index'
 

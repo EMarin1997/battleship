@@ -23,10 +23,9 @@ class Board < ActiveRecord::Base
 	end
 
 	def place(y)
-		if self.ship == y
-			'ship'
-		else
-			'water'
+		mine = self.ships.select do |ship|
+			y == ship.point
 		end
+		mine.count == 0? (return 'water'):(return 'ship')
 	end
 end

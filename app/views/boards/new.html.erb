@@ -1,2 +1,10 @@
 <p> Battleship </p>
-<%= render 'form' %>
+<%= form_for :board, url: boards_path do |f| %>
+ <p> 
+  <%= f.label :name, "Username" %>
+  <%= f.text_field :name %>
+ </p>
+ <p>
+  <%= f.submit %>
+ </p>
+<% end %>

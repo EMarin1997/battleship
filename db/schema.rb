@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140718224853) do
+ActiveRecord::Schema.define(version: 20140722144343) do
 
   create_table "attacks", force: true do |t|
     t.string   "point",      null: false
@@ -21,11 +21,10 @@ ActiveRecord::Schema.define(version: 20140718224853) do
   end
 
   create_table "boards", force: true do |t|
-    t.string   "ship"
-    t.string   "attack"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "enemy"
+    t.string   "name"
   end
 
   create_table "games", force: true do |t|

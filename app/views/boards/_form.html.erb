@@ -1,7 +1,7 @@
-<%= form_for :board, url: boards_path do |f| %>
+<%= form_for :ship, url: board_ships_path(@board) do |f| %>
  <p> 
-  <%= f.label :ship, "Ship Location" %>
-  <%= f.text_field :ship %>
+  <%= f.label :point, "place ship" %>
+  <%= f.text_field :point %>
  </p>
  <p>
   <%= f.submit %>
