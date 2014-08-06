@@ -1,4 +1,5 @@
 class Board < ActiveRecord::Base
+	belongs_to :game
 	has_many :attacks
 	has_many :ships
 	accepts_nested_attributes_for :ships
