@@ -4,9 +4,13 @@ class BoardsController < ApplicationController
 
 	def create
 		@board = Board.new
+		@board.game_id = params["game_id"]
 
 		@board.save
-		redirect_to @board
+		puts '**********'
+		puts @board.id
+		puts @board.game_id
+		redirect_to game_board_path(@board.game_id, @board.id)
 	end
 
 	def update
@@ -21,6 +25,7 @@ class BoardsController < ApplicationController
 	end
 
 	def show
+		@game = Game.find(params[:game_id])
 		@board = Board.find(params[:id])
 		@size = 10
 	end

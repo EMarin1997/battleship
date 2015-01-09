@@ -4,10 +4,11 @@ Rails.application.routes.draw do
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
-  resources :games, only: [:index, :new, :create, :show]
-  resources :boards do
-    resources :attacks, only: [:create]
-    resources :ships, only: [:create]
+  resources :games, only: [:index, :new, :create, :show] do
+    resources :boards, only: [:new, :create, :show] do
+      resources :ships, only: [:create]
+      resources :attacks, only: [:create]
+    end
   end
   # You can have the root of your site routed with "root"
    root 'play#index'

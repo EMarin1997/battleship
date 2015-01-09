@@ -11,13 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140806205138) do
+ActiveRecord::Schema.define(version: 20141222204047) do
 
   create_table "attacks", force: true do |t|
     t.string   "point",      null: false
-    t.integer  "board_id",   null: false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "game_id"
+    t.integer  "board_id"
   end
 
   create_table "boards", force: true do |t|
@@ -36,9 +37,11 @@ ActiveRecord::Schema.define(version: 20140806205138) do
 
   create_table "ships", force: true do |t|
     t.string   "point",      null: false
-    t.integer  "board_id",   null: false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "game_id"
+    t.integer  "player"
+    t.integer  "board_id"
   end
 
   create_table "users", force: true do |t|

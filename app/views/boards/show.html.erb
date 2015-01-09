@@ -6,21 +6,16 @@
 	<tbody>
 		<tr>
 			<td><%= render 'defend' %></td>
+			<% if @board.ships.count > 4 %>
+				<td><%= render 'attack' %></td>
+			<% end %>
 		</tr>
 		<tr>
 			<% if @board.ships.count < 5 %>
 				<td><%= render 'form' %></td>
-			<%end%>
-			<% @game = Game.last %>
-			<% if @board.ships.count == 5 %> 
-				<% if (Game.count == 0) %>
-					<%= render 'games/ngame' %>
-				<% elsif @game.boards.count == 2 %>
-					<%= render 'games/ngame' %>
-				<%else%>
-					<td><%= link_to "Begin", @game %></td>
-				<%end%>
-			<%end%>
+			<% else %>
+				<td><%= render 'missle' %></td>
+			<% end %>
 		</tr>
 	</tbody>
 </table>

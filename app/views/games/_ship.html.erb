@@ -1,4 +1,4 @@
-<%= form_for :ship, url: game_board_ships_path(@game.id, @board.id) do |f| %>
+<%= form_for :ship, url: game_ships_path(@game) do |f| %>
  <p> 
   <%= f.label :point, "Place Ship" %>
   <%= f.text_field :point %>

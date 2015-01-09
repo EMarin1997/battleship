@@ -3,7 +3,7 @@ class AttacksController < ApplicationController
 	def create
 		@board = Board.find(params[:board_id])
 		@attack = @board.attacks.create(attack_params)
-		redirect_to board_path(@board)
+		redirect_to game_board_path(@board.game_id, @board.id)
 	end
 
 	private

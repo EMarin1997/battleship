@@ -1,3 +1,15 @@
-<p> It's working </p>
-<%= @game.boards %>
+<p> Battleship </p>
+<table>
+	<thead>
+		<th> My info</th>
+	</thead>
+	<tbody>
+		<% @game.ships.each do |ship| %>
+			<tr>
+				<td><%= ship.point %></td>
+				<td><%= ship.board_id %></td>
+			</tr>
+		<% end %>
+	</tbody>
+</table>
 

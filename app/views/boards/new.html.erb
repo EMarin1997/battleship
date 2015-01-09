@@ -1,5 +1,5 @@
 <p> Battleship </p>
-<%= form_for :board, url: boards_path do |f| %>
+<%= form_for :board, url: game_boards_path do |f| %>
  <p> 
   <%= f.label :name, "Username" %>
   <%= f.text_field :name %>
@@ -7,4 +7,4 @@
  <p>
   <%= f.submit %>
  </p>
-<% end %>
+<%end%>
