@@ -1,1 +1,12 @@
-
+Boards
+ <table>
+  <tr>
+    <th>Player 1</th>
+    <th>Player 2</th>
+  </tr>
+ 
+  <% @boards.each do |board| %>
+    <tr>
+      <td><%= board.enemy %></td>
+    </tr>
+  <% end %>

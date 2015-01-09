@@ -6,11 +6,17 @@ class GamesController < ApplicationController
   end
 
   def create
+    @game = Game.new
+
+    @game.save
+    puts '********************'
+    puts @game
+    redirect_to new_game_board_path(@game.id)
   end
 
   def show
+    @game = Game.find(params[:id])
+    @size = 10
   end
 
-  def update
-  end
 end
