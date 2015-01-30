@@ -3,6 +3,7 @@ class Game < ActiveRecord::Base
 	has_many :attacks, through: :boards
 	has_many :ships, through: :boards
 	
+=begin
 	def test(a)
 		matching = self.attacks.select do |attack|
 			a == attack.point
@@ -21,5 +22,6 @@ class Game < ActiveRecord::Base
 		end
 		mine.count == 0? (return 'water'):(return 'ship')
 	end
+=end
 
 end
