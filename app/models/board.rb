@@ -4,16 +4,27 @@ class Board < ActiveRecord::Base
 	has_many :ships
 	accepts_nested_attributes_for :ships
 	accepts_nested_attributes_for :attacks
-	
-
-	def random
-		@game = Game.find(game_id)
-	end
 
 	def test(a)
-		if (self.attacks.any? {|attack| attack == a}) && (self.enemy.any?{|enemy| enemy == a}) 
+		@game = Game.find(game_id) #Looks for the current game
+		player1 = @game.boards.first # This will be used in a comparison
+		player2 = @game.boards.last#   later to decide who is the enemy
+		matching = self.attacks.select do |attack| # checks to see if any 'attack' is equal to point 'a'
+			a == attack.point
+		end
+		if self.id == player1.id
+			target = player2.ships.select do |ship|
+				a == ship.point
+			end
+		else
+			target = player1.ships.select do |ship|
+				a == ship.point
+			end
+		end
+
+		if matching.any? && target.any?
 			return 'hit'
-		elsif (self.attacks.any? {|attack| attack == a}) && (self.enemy.any?{|enemy| enemy != a})
+		elsif (matching.count == 1) && (target.count == 0)
 			return 'miss'
 		else
 			return 'water'
