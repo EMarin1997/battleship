@@ -13,6 +13,6 @@
 			%tr
 				%td.column= row + 1
 				- @size.times do |column|
-					%td{class: @board.place("#{("A".ord+column).chr}#{row + 1}")} 
+					%td{class: @board.status("#{("A".ord+column).chr}#{row + 1}")} 
 				
 		

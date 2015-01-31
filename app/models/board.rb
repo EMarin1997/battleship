@@ -31,10 +31,32 @@ class Board < ActiveRecord::Base
 		end
 	end
 	
-	def place(y)
+	def status(y)
+		@game = Game.find(game_id) #Looks for the current game
+		player1 = @game.boards.first # This will be used in a comparison
+		player2 = @game.boards.last#   later to decide who is the enemy
 		mine = self.ships.select do |ship|
 			y == ship.point
 		end
-		mine.count == 0? (return 'water'):(return 'ship')
+		if self.id == player1.id
+			damage = player2.attacks.select do |attack|
+				y == attack.point
+			end
+		else
+			damage = player1.attacks.select do |attack|
+				y == attack.point
+			end
+		end
+
+		if mine.any? && damage.any?
+			return 'hit'
+		elsif mine.any? && (damage.count == 0)
+			return 'ship'
+		elsif (mine.count == 0) && damage.any?
+			return 'miss'
+		else
+			return 'water'
+		end
+
 	end
 end
