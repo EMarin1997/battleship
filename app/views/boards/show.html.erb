@@ -6,15 +6,19 @@
 	<tbody>
 		<tr>
 			<td><%= render 'defend' %></td>
-			<% if @board.ships.count > 4 %>
+			<% if (@board.ships.count > 4) && (@game.ships.count > 9) %>
 				<td><%= render 'attack' %></td>
+			<% else %>
+				<td><p>Waiting for Opponent</p></td>
 			<% end %>
 		</tr>
 		<tr>
 			<% if @board.ships.count < 5 %>
 				<td><%= render 'form' %></td>
-			<% else %>
+			<% elsif (@board.ships.count > 4) && (@game.ships.count > 9) %>
 				<td><%= render 'missle' %></td>
+			<% else %>
+				<td><p>Waiting for Opponent <p><td>
 			<% end %>
 		</tr>
 	</tbody>
