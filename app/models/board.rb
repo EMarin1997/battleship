@@ -57,6 +57,18 @@ class Board < ActiveRecord::Base
 		else
 			return 'water'
 		end
+	end
 
+	def my_turn
+		@game = Game.find(game_id) #Looks for the current game
+		player1 = @game.boards.first # This will be used in a comparison
+		player2 = @game.boards.last#   later to decide who is the enemy
+		if (@game.turn%2 == 0) && (self.id == player2.id)#if the turn is even its player 2 turn
+			return true
+		elsif (@game.turn%2 != 0) && (self.id == player1.id)#if turn is odd its player 1 turn
+			return true
+		else 
+			return false #else it is not your turn
+		end
 	end
 end

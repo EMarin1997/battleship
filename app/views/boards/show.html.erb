@@ -15,10 +15,12 @@
 		<tr>
 			<% if @board.ships.count < 5 %>
 				<td><%= render 'form' %></td>
-			<% elsif (@board.ships.count > 4) && (@game.ships.count > 9) %>
+			<% elsif (@game.ships.count > 9) && (@board.my_turn) %>
 				<td><%= render 'missle' %></td>
+			<% elsif (@game.ships.count > 9) && (@board.my_turn == false) %>
+				<td><p> It's your opponent's turn </p>
 			<% else %>
-				<td><p>Waiting for Opponent <p><td>
+				<td><p>Waiting for Opponent</p><td>
 			<% end %>
 		</tr>
 	</tbody>
