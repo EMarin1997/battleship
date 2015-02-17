@@ -18,7 +18,7 @@
 			<% elsif (@game.ships.count > 9) && (@board.my_turn) %>
 				<td><%= render 'missle' %></td>
 			<% elsif (@game.ships.count > 9) && (@board.my_turn == false) %>
-				<td><p> It's your opponent's turn </p>
+				<td><p> It's your opponent's turn </p></td>
 			<% else %>
 				<td><p>Waiting for Opponent</p><td>
 			<% end %>

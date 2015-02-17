@@ -7,7 +7,7 @@ class GamesController < ApplicationController
 
   def create
     @game = Game.new
-
+    @game.turn = 1
     @game.save
     puts '********************'
     puts @game

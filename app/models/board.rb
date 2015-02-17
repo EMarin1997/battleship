@@ -71,4 +71,22 @@ class Board < ActiveRecord::Base
 			return false #else it is not your turn
 		end
 	end
+=begin
+	def game_over
+		@game = Game.find(game_id) #Looks for the current game
+		player1 = @game.boards.first # This will be used in a comparison
+		player2 = @game.boards.last#   later to decide who is the enemy
+		self.id == player1.id? enemy = player2 : enemy = player1
+		a = enemy.ships.first
+		b = enemy.ships.second
+		c = enemy.ships.third
+		d = enemy.ships.fourth
+		e = enemy.ships.last
+		if (((enemy.test(a) == "hit") && (enemy.test(b) == "hit")) && (enemy.test(c) == "hit")) && ((enemy.test(d) == "hit") && (enemy.test(e) == "hit")) 
+			return true
+		else
+			return false
+		end
+	end
+=end
 end
