@@ -15,6 +15,8 @@
 		<tr>
 			<% if @board.ships.count < 5 %>
 				<td><%= render 'form' %></td>
+			<% elsif (@board.win) || (@board.lose) %>
+				<td><%= render 'end' %></td>
 			<% elsif (@game.ships.count > 9) && (@board.my_turn) %>
 				<td><%= render 'missle' %></td>
 			<% elsif (@game.ships.count > 9) && (@board.my_turn == false) %>

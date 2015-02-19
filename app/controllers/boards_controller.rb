@@ -15,7 +15,6 @@ class BoardsController < ApplicationController
 
 	def update
 		@board = Board.find(params[:id])
-		@board.attack
 
 		redirect_to @board
 	end
