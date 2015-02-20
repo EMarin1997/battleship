@@ -94,4 +94,13 @@ class Board < ActiveRecord::Base
 			return false
 		end
 	end
+
+	def restart
+		@game = Game.last
+		if (@game.boards.any?) || (@game.boards.count > 1)
+			return true
+		else 
+			return false
+		end
+	end
 end
