@@ -4,7 +4,7 @@
 <% else %>
 	<p> You Lost :(. Better luck next time <p>
 <% end %>
-<% if @board.restart %>
+<% if @board.restart == true %>
 	<%= link_to "Play Again", games_path, :method => :post %>
 <% else %>
 	<%= link_to "Play Again", new_game_board_path(@game.id) %>

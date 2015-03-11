@@ -14,9 +14,6 @@ class BoardsController < ApplicationController
 	end
 
 	def update
-		@board = Board.find(params[:id])
-
-		redirect_to @board
 	end
 
 	def index
@@ -26,6 +23,8 @@ class BoardsController < ApplicationController
 	def show
 		@game = Game.find(params[:game_id])
 		@board = Board.find(params[:id])
+		@enemy = @board.opponent
+		indicator = @enemy.attacks.count
 		@size = 10
 	end
 

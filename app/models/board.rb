@@ -97,10 +97,17 @@ class Board < ActiveRecord::Base
 
 	def restart
 		@game = Game.last
-		if (@game.boards.any?) || (@game.boards.count > 1)
+		if (@game.boards.any?) && (@game.boards.count > 1)
 			return true
 		else 
 			return false
 		end
+	end
+
+	def opponent 
+		@game = Game.find(game_id) #Looks for the current game
+		player1 = @game.boards.first # This will be used in a comparison
+		player2 = @game.boards.last#   later to decide who is the enemy
+		(self.id == player1.id)? enemy = player2 : enemy = player1
 	end
 end
